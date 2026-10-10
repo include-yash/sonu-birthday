@@ -91,9 +91,19 @@ export function Welcome({ onNext }: P) {
             </g>
           ))}
         </svg>
+        <div aria-hidden="true" className="relative z-10 mb-1 flex w-full items-center justify-center gap-2 sm:hidden">
+          {c.dancers.slice(0, 4).map((src, index) => (
+            <img
+              key={`mobile-${src}-${index}`}
+              src={src}
+              alt=""
+              className="h-12 w-12 shrink-0 object-contain"
+            />
+          ))}
+        </div>
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           {c.dancers.map((src, index) => (
-            <img key={`${src}-${index}`} src={src} alt="" className={cn("absolute object-contain", dancerPositions[index])} />
+            <img key={`${src}-${index}`} src={src} alt="" className={cn("absolute hidden object-contain sm:block", dancerPositions[index])} />
           ))}
         </div>
         <div className="paper relative z-10 flex max-w-[min(100%,36rem)] flex-col items-center rounded-2xl bg-cream/90 px-3 py-2 sm:px-5">
